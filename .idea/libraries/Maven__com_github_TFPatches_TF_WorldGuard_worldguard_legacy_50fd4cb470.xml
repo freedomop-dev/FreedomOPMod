@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.TFPatches.TF-WorldGuard:worldguard-legacy:50fd4cb470">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldGuard/worldguard-legacy/50fd4cb470/worldguard-legacy-50fd4cb470.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldGuard/worldguard-legacy/50fd4cb470/worldguard-legacy-50fd4cb470-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldGuard/worldguard-legacy/50fd4cb470/worldguard-legacy-50fd4cb470-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

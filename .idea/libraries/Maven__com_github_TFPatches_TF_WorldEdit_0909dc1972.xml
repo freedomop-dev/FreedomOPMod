@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.TFPatches:TF-WorldEdit:0909dc1972">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldEdit/0909dc1972/TF-WorldEdit-0909dc1972.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldEdit/0909dc1972/TF-WorldEdit-0909dc1972-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/TFPatches/TF-WorldEdit/0909dc1972/TF-WorldEdit-0909dc1972-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
