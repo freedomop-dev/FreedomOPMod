@@ -137,6 +137,18 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
     public WorldGuardBridge wgb;
     public AMP amp;
 
+    public static TotalFreedomMod plugin()
+    {
+        for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
+        {
+            if (plugin.getName().equalsIgnoreCase(pluginName))
+            {
+                return (TotalFreedomMod)plugin;
+            }
+        }
+        return null;
+    }
+
     @Override
     public void load()
     {
@@ -288,6 +300,12 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         FLog.info("Plugin disabled");
     }
 
+    @Override
+    public ChunkGenerator getDefaultWorldGenerator(String worldName, String id)
+    {
+        return new CleanroomChunkGenerator(id);
+    }
+
     public static class BuildProperties
     {
 
@@ -329,23 +347,5 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         {
             return pluginVersion + "." + number + " (" + head + ")";
         }
-    }
-
-    public static TotalFreedomMod plugin()
-    {
-        for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
-        {
-            if (plugin.getName().equalsIgnoreCase(pluginName))
-            {
-                return (TotalFreedomMod)plugin;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public ChunkGenerator getDefaultWorldGenerator(String worldName, String id)
-    {
-        return new CleanroomChunkGenerator(id);
     }
 }

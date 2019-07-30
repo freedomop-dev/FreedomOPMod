@@ -114,10 +114,10 @@ public class ActivityLog extends FreedomService
             activityLog = getEntryByIp(ip);
             if (activityLog != null)
             {
-               // Set the new username
-               activityLog.setName(player.getName());
-               save();
-               updateTables();
+                // Set the new username
+                activityLog.setName(player.getName());
+                save();
+                updateTables();
             }
             else
             {

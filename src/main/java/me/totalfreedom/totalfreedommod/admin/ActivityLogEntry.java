@@ -10,28 +10,27 @@ import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.base.ConfigLoadable;
 import net.pravian.aero.base.ConfigSavable;
 import net.pravian.aero.base.Validatable;
-import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang.Validate;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 public class ActivityLogEntry implements ConfigLoadable, ConfigSavable, Validatable
 {
 
+    public static final String FILENAME = "activitylog.yml";
+    @Getter
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     private String configKey;
     @Getter
     @Setter
     private String name;
     @Getter
-    private final List<String> ips = Lists.newArrayList();
-    @Getter
     @Setter
     private List<String> timestamps = Lists.newArrayList();
     @Getter
     @Setter
     private List<String> durations = Lists.newArrayList();
-
-    public static final String FILENAME = "activitylog.yml";
 
     public ActivityLogEntry(Player player)
     {
@@ -77,6 +76,7 @@ public class ActivityLogEntry implements ConfigLoadable, ConfigSavable, Validata
         Date currentTime = Date.from(Instant.now());
         timestamps.add("Login: " + FUtil.dateToString(currentTime));
     }
+
     public void addLogout()
     {
         String lastLoginString = timestamps.get(timestamps.size() - 1);

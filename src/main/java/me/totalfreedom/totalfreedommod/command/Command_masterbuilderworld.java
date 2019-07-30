@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import me.totalfreedom.totalfreedommod.rank.Rank;
-import me.totalfreedom.totalfreedommod.util.FUtil;
 import me.totalfreedom.totalfreedommod.world.WorldTime;
 import me.totalfreedom.totalfreedommod.world.WorldWeather;
 import org.bukkit.World;
@@ -18,11 +17,6 @@ import org.bukkit.entity.Player;
         aliases = "mbw,mbworld")
 public class Command_masterbuilderworld extends FreedomCommand
 {
-
-    private enum CommandMode
-    {
-        TELEPORT, TIME, WEATHER
-    }
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -182,6 +176,11 @@ public class Command_masterbuilderworld extends FreedomCommand
         {
             throw new PermissionDeniedException();
         }
+    }
+
+    private enum CommandMode
+    {
+        TELEPORT, TIME, WEATHER
     }
 
     private class PermissionDeniedException extends Exception

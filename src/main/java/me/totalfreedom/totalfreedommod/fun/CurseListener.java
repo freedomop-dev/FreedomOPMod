@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerResourcePackStatusEvent;
-
 import static org.bukkit.event.player.PlayerResourcePackStatusEvent.Status;
 
 public class CurseListener extends FreedomService

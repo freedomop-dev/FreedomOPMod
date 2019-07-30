@@ -9,18 +9,18 @@ import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
 import me.totalfreedom.totalfreedommod.util.FUtil;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Entity;
-import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -28,9 +28,8 @@ import org.bukkit.util.Vector;
 public class ItemFun extends FreedomService
 {
 
-    public List<Player> explosivePlayers = new ArrayList<Player>();
-
     private final Random random = new Random();
+    public List<Player> explosivePlayers = new ArrayList<Player>();
 
     public ItemFun(TotalFreedomMod plugin)
     {
@@ -69,7 +68,7 @@ public class ItemFun extends FreedomService
                 if (!plugin.al.isSeniorAdmin(player))
                 {
                     final StringBuilder msg = new StringBuilder();
-                    final char[] chars = ("You are a clown.").toCharArray();
+                    final char[] chars = ("That's clownery, luv").toCharArray();
                     for (char c : chars)
                     {
                         msg.append(FUtil.randomChatColor()).append(c);

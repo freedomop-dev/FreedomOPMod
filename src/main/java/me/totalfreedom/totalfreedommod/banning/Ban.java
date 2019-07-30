@@ -1,7 +1,6 @@
 package me.totalfreedom.totalfreedommod.banning;
 
 import com.google.common.collect.Lists;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Arrays;
@@ -27,12 +26,11 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
 {
 
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
-
+    @Getter
+    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private String username = null;
-    @Getter
-    private final List<String> ips = Lists.newArrayList();
     @Getter
     @Setter
     private String by = null;

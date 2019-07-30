@@ -47,6 +47,7 @@ public enum ConfigEntry
     SERVER_PERMBAN_URL(String.class, "server.permban_url"),
     SERVER_TABLIST_HEADER(String.class, "server.tablist_header"),
     SERVER_TABLIST_FOOTER(String.class, "server.tablist_footer"),
+    SERVER_SYSTEM_ADMINS(List.class, "server.sysadmins"),
     //
     DISCORD_TOKEN(String.class, "discord.token"),
     DISCORD_REPORT_CHANNEL_ID(String.class, "discord.report_channel_id"),
@@ -117,11 +118,7 @@ public enum ConfigEntry
     AMP_ENABLED(Boolean.class, "amp.enabled"),
     AMP_USERNAME(String.class, "amp.username"),
     AMP_PASSWORD(String.class, "amp.password"),
-    AMP_URL(String.class, "amp.url"),
-    //
-    SYSTEM_ADMINS(List.class, "admins.system"),
-    SPECIAL_EXECUTIVE(List.class, "admins.special"),
-    FOP_DEVELOPER(List.class, "admins.developer");
+    AMP_URL(String.class, "amp.url");
     //
     private final Class<?> type;
     private final String configName;
@@ -130,6 +127,19 @@ public enum ConfigEntry
     {
         this.type = type;
         this.configName = configName;
+    }
+
+    public static ConfigEntry findConfigEntry(String name)
+    {
+        name = name.toLowerCase().replace("_", "");
+        for (ConfigEntry entry : values())
+        {
+            if (entry.toString().toLowerCase().replace("_", "").equals(name))
+            {
+                return entry;
+            }
+        }
+        return null;
     }
 
     public Class<?> getType()
@@ -200,18 +210,5 @@ public enum ConfigEntry
     private MainConfig getConfig()
     {
         return TotalFreedomMod.plugin().config;
-    }
-
-    public static ConfigEntry findConfigEntry(String name)
-    {
-        name = name.toLowerCase().replace("_", "");
-        for (ConfigEntry entry : values())
-        {
-            if (entry.toString().toLowerCase().replace("_", "").equals(name))
-            {
-                return entry;
-            }
-        }
-        return null;
     }
 }

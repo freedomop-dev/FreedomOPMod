@@ -227,17 +227,6 @@ public class Command_modifyitem extends FreedomCommand
             this.attribute = attribute;
         }
 
-        public String getAttribute()
-        {
-            return attribute;
-        }
-
-        @Override
-        public String toString()
-        {
-            return name;
-        }
-
         public static Attribute getByName(String name)
         {
             for (Attribute attr : Attribute.values())
@@ -248,6 +237,17 @@ public class Command_modifyitem extends FreedomCommand
                 }
             }
             return null;
+        }
+
+        public String getAttribute()
+        {
+            return attribute;
+        }
+
+        @Override
+        public String toString()
+        {
+            return name;
         }
     }
 }

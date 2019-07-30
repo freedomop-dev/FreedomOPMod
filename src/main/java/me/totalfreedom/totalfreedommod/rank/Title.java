@@ -8,10 +8,9 @@ public enum Title implements Displayable
 
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
     EXECUTIVE("an", "Executive", ChatColor.RED, "Exec"),
-    DEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "TFM-Dev"),
-    FOP_DEVELOPER("an", "FOP Developer", ChatColor.DARK_PURPLE, "Dev"),
-    SPECIAL_EXECUTIVE("a", "Special Executive", ChatColor.YELLOW, "Spec-Exec"),
-    SYSTEM_ADMIN("a", "System-Admin", ChatColor.DARK_RED, "System-Admin"),
+    DEVELOPER("a", "TF Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
+    FOP_DEVELOPER("a", "FOP Developer", ChatColor.DARK_PURPLE, "FOP-Dev"),
+    SYSTEM_ADMIN("a", "System Admin", ChatColor.RED, "System Admin"),
     OWNER("the", "Owner", ChatColor.DARK_RED, "Owner");
 
     private final String determiner;

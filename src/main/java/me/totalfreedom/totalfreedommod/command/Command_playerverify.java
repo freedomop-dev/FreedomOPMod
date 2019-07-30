@@ -100,6 +100,7 @@ public class Command_playerverify extends FreedomCommand
                 return false;
         }
     }
+
     @Override
     public List<String> getTabCompleteOptions(CommandSender sender, Command command, String alias, String[] args)
     {

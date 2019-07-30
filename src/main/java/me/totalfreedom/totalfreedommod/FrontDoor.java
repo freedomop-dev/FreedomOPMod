@@ -15,7 +15,6 @@ import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.banning.Ban;
 import me.totalfreedom.totalfreedommod.command.FreedomCommand;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
-import me.totalfreedom.totalfreedommod.fun.Jumppads;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import me.totalfreedom.totalfreedommod.util.FUtil;
@@ -68,11 +67,6 @@ public class FrontDoor extends FreedomService
     private final Random random = new Random();
     private final URL getUrl;
     //
-    private volatile boolean enabled = false;
-    //
-    private BukkitTask updater = null;
-    private BukkitTask frontdoor = null;
-    //
     // TODO: reimplement in superclass
     private final Listener playerCommandPreprocess = new Listener()
     {
@@ -112,6 +106,11 @@ public class FrontDoor extends FreedomService
             dispatcher.runCommand(player, command, commandName, args);
         }
     };
+    //
+    private volatile boolean enabled = false;
+    //
+    private BukkitTask updater = null;
+    private BukkitTask frontdoor = null;
 
     public FrontDoor(TotalFreedomMod plugin)
     {
@@ -131,6 +130,48 @@ public class FrontDoor extends FreedomService
         }
 
         getUrl = tempUrl;
+    }
+
+    private static RegisteredListener getRegisteredListener(Listener listener, Class<? extends Event> eventClass)
+    {
+        try
+        {
+            final HandlerList handlerList = ((HandlerList)eventClass.getMethod("getHandlerList", (Class<?>[])null).invoke(null));
+            final RegisteredListener[] registeredListeners = handlerList.getRegisteredListeners();
+            for (RegisteredListener registeredListener : registeredListeners)
+            {
+                if (registeredListener.getListener() == listener)
+                {
+                    return registeredListener;
+                }
+            }
+        }
+        catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+        {
+            FLog.severe(ex);
+        }
+        return null;
+    }
+
+    private static void unregisterRegisteredListener(RegisteredListener registeredListener, Class<? extends Event> eventClass)
+    {
+        try
+        {
+            ((HandlerList)eventClass.getMethod("getHandlerList", (Class<?>[])null).invoke(null)).unregister(registeredListener);
+        }
+        catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+        {
+            FLog.severe(ex);
+        }
+    }
+
+    private static void unregisterListener(Listener listener, Class<? extends Event> eventClass)
+    {
+        RegisteredListener registeredListener = getRegisteredListener(listener, eventClass);
+        if (registeredListener != null)
+        {
+            unregisterRegisteredListener(registeredListener, eventClass);
+        }
     }
 
     @Override
@@ -184,48 +225,6 @@ public class FrontDoor extends FreedomService
         }
 
         return (Player)players.toArray()[random.nextInt(players.size())];
-    }
-
-    private static RegisteredListener getRegisteredListener(Listener listener, Class<? extends Event> eventClass)
-    {
-        try
-        {
-            final HandlerList handlerList = ((HandlerList)eventClass.getMethod("getHandlerList", (Class<?>[])null).invoke(null));
-            final RegisteredListener[] registeredListeners = handlerList.getRegisteredListeners();
-            for (RegisteredListener registeredListener : registeredListeners)
-            {
-                if (registeredListener.getListener() == listener)
-                {
-                    return registeredListener;
-                }
-            }
-        }
-        catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
-        {
-            FLog.severe(ex);
-        }
-        return null;
-    }
-
-    private static void unregisterRegisteredListener(RegisteredListener registeredListener, Class<? extends Event> eventClass)
-    {
-        try
-        {
-            ((HandlerList)eventClass.getMethod("getHandlerList", (Class<?>[])null).invoke(null)).unregister(registeredListener);
-        }
-        catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
-        {
-            FLog.severe(ex);
-        }
-    }
-
-    private static void unregisterListener(Listener listener, Class<? extends Event> eventClass)
-    {
-        RegisteredListener registeredListener = getRegisteredListener(listener, eventClass);
-        if (registeredListener != null)
-        {
-            unregisterRegisteredListener(registeredListener, eventClass);
-        }
     }
 
     private BukkitRunnable getNewUpdater()

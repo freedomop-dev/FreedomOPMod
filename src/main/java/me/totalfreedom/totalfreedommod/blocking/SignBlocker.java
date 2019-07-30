@@ -4,7 +4,6 @@ import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import net.minecraft.server.v1_14_R1.NBTTagCompound;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.craftbukkit.v1_14_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;

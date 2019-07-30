@@ -1,6 +1,10 @@
 package me.totalfreedom.totalfreedommod.httpd.module;
 
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,6 +47,12 @@ public class Module_schematic extends HTTPDModule
     public Module_schematic(TotalFreedomMod plugin, NanoHTTPD.HTTPSession session)
     {
         super(plugin, session);
+    }
+
+    private static String getArg(String[] args, int index)
+    {
+        String out = (args.length == index + 1 ? args[index] : null);
+        return (out == null ? null : (out.trim().isEmpty() ? null : out.trim()));
     }
 
     @Override
@@ -190,9 +200,14 @@ public class Module_schematic extends HTTPDModule
             throw new SchematicTransferException("Can't resolve original file name.");
         }
 
-        if (tempFile.length() > FileUtils.ONE_MB )
+        if (tempFile.length() > FileUtils.ONE_MB)
         {
             throw new SchematicTransferException("Schematic is too big (1mb max).");
+        }
+
+        if (plugin.web.getWorldEditPlugin() == null)
+        {
+            throw new SchematicTransferException("WorldEdit is not on the server.");
         }
 
         if (!SCHEMATIC_FILENAME_LC.matcher(origFileName.toLowerCase()).find())
@@ -206,10 +221,28 @@ public class Module_schematic extends HTTPDModule
             throw new SchematicTransferException("Schematic already exists on the server.");
         }
 
+
         try
         {
             FileUtils.copyFile(tempFile, targetFile);
+            ClipboardFormat format = ClipboardFormats.findByFile(targetFile);
+            if (format == null)
+            {
+                FileUtils.deleteQuietly(targetFile);
+                throw new SchematicTransferException("Schematic is not a valid schematic.");
+            }
+            try
+            {
+                ClipboardReader reader = format.getReader(new FileInputStream(targetFile));
+            }
+            catch (IOException e)
+            {
+                FileUtils.deleteQuietly(targetFile);
+                throw new SchematicTransferException("Schematic is not a valid schematic.");
+            }
+
             FLog.info(remoteAddress + " uploaded schematic: " + targetFile.getName());
+
         }
         catch (IOException ex)
         {
@@ -246,6 +279,41 @@ public class Module_schematic extends HTTPDModule
         return entry != null && entry.isActive();
     }
 
+    private static enum ModuleMode
+    {
+
+        LIST("list"),
+        UPLOAD("upload"),
+        DOWNLOAD("download"),
+        INVALID(null);
+        //
+        private final String modeName;
+
+        private ModuleMode(String modeName)
+        {
+            this.modeName = modeName;
+        }
+
+        public static ModuleMode getMode(String needle)
+        {
+            for (ModuleMode mode : values())
+            {
+                final String haystack = mode.toString();
+                if (haystack != null && haystack.equalsIgnoreCase(needle))
+                {
+                    return mode;
+                }
+            }
+            return INVALID;
+        }
+
+        @Override
+        public String toString()
+        {
+            return this.modeName;
+        }
+    }
+
     private static class SchematicTransferException extends Exception
     {
 
@@ -272,47 +340,6 @@ public class Module_schematic extends HTTPDModule
         public Response getResponse()
         {
             return response;
-        }
-    }
-
-    private static String getArg(String[] args, int index)
-    {
-        String out = (args.length == index + 1 ? args[index] : null);
-        return (out == null ? null : (out.trim().isEmpty() ? null : out.trim()));
-    }
-
-    private static enum ModuleMode
-    {
-
-        LIST("list"),
-        UPLOAD("upload"),
-        DOWNLOAD("download"),
-        INVALID(null);
-        //
-        private final String modeName;
-
-        private ModuleMode(String modeName)
-        {
-            this.modeName = modeName;
-        }
-
-        @Override
-        public String toString()
-        {
-            return this.modeName;
-        }
-
-        public static ModuleMode getMode(String needle)
-        {
-            for (ModuleMode mode : values())
-            {
-                final String haystack = mode.toString();
-                if (haystack != null && haystack.equalsIgnoreCase(needle))
-                {
-                    return mode;
-                }
-            }
-            return INVALID;
         }
     }
 

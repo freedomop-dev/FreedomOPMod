@@ -21,11 +21,11 @@ public class Jumppads extends FreedomService
     public static final double DAMPING_COEFFICIENT = 0.8;
     //
     private final Map<Player, Boolean> pushMap = Maps.newHashMap();
+    public HashMap<Player, JumpPadMode> players = new HashMap<>();
     //
     @Getter
     @Setter
     private double strength = 1 + 0.1F;
-    public HashMap<Player, JumpPadMode> players = new HashMap<>();
 
     public Jumppads(TotalFreedomMod plugin)
     {
@@ -47,7 +47,7 @@ public class Jumppads extends FreedomService
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event)
     {
-        if(!players.containsKey(event.getPlayer()))
+        if (!players.containsKey(event.getPlayer()))
         {
             players.put(event.getPlayer(), JumpPadMode.OFF);
         }

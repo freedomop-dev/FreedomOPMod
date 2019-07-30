@@ -8,7 +8,7 @@ import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.playerverification.VPlayer;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.ChatUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
@@ -56,29 +56,22 @@ public class RankManager extends FreedomService
             return Title.OWNER;
         }
 
-
-        // FOP System Administrator
-        if (ConfigEntry.SYSTEM_ADMINS.getList().contains(player.getName()))
+        // If the player is a system admin, show the title
+        if (ConfigEntry.SERVER_SYSTEM_ADMINS.getList().contains(player.getName()))
         {
             return Title.SYSTEM_ADMIN;
         }
 
-        // FOP Special Executive
-        if (ConfigEntry.SPECIAL_EXECUTIVE.getList().contains(player.getName()))
-        {
-            return Title.SPECIAL_EXECUTIVE;
-        }
-
-        // FOP Developer
-        if (ConfigEntry.FOP_DEVELOPER.getList().contains(player.getName()))
-        {
-            return Title.FOP_DEVELOPER;
-        }
-
-        // Developers always show up
+        // TF Developers always show up
         if (FUtil.DEVELOPERS.contains(player.getName()))
         {
             return Title.DEVELOPER;
+        }
+
+        // Display FOP Developers
+        if (FUtil.FOP_DEVELOPERS.contains(player.getName()))
+        {
+            return Title.FOP_DEVELOPER;
         }
 
         if (ConfigEntry.SERVER_EXECUTIVES.getList().contains(player.getName()) && plugin.al.isAdmin(player))

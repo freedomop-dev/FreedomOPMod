@@ -2,7 +2,7 @@ package me.totalfreedom.totalfreedommod.world;
 
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.World;
 
 public enum WorldTime
@@ -29,18 +29,6 @@ public enum WorldTime
         this.aliases = Arrays.asList(StringUtils.split(aliases, ","));
     }
 
-    public int getTimeTicks()
-    {
-        return timeTicks;
-    }
-
-    public void setWorldToTime(World world)
-    {
-        long time = world.getTime();
-        time -= time % 24000;
-        world.setTime(time + 24000 + getTimeTicks());
-    }
-
     public static WorldTime getByAlias(String needle)
     {
         needle = needle.toLowerCase();
@@ -52,5 +40,17 @@ public enum WorldTime
             }
         }
         return null;
+    }
+
+    public int getTimeTicks()
+    {
+        return timeTicks;
+    }
+
+    public void setWorldToTime(World world)
+    {
+        long time = world.getTime();
+        time -= time % 24000;
+        world.setTime(time + 24000 + getTimeTicks());
     }
 }
