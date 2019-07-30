@@ -35,6 +35,23 @@ public class Command_personal extends FreedomCommand
                     cookie.setItemMeta(meta);
                     inv.addItem(cookie);
                 }
+                return true;
+            }
+            case "Gloomless":
+            {
+                // Don't punish me for this - Punish Gloomless/Jake
+                FUtil.bcastMsg("Guacamole nigga penis", FUtil.randomChatColor());
+                for (Player player : server.getOnlinePlayers())
+                {
+                    PlayerInventory inv = player.getInventory();
+                    ItemStack stick = new ItemStack(Material.STICK, 1);
+                    stick.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 69);
+                    ItemMeta meta = stick.getItemMeta();
+                    meta.setDisplayName(ChatColor.GOLD + "nigga penis");
+                    stick.setItemMeta(meta);
+                    inv.addItem(stick);
+                }
+                return true;
             }
             default:
             {
