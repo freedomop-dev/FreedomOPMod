@@ -145,7 +145,7 @@ public class ChatManager extends FreedomService
     public void adminChat(CommandSender sender, String message)
     {
         Displayable display = plugin.rm.getDisplay(sender);
-        FLog.info("[ADMIN] " + sender.getName() + " " + display.getTag() + ": " + message, true);
+        FLog.info("[AdminChat] " + sender.getName() + " " + display.getTag() + ": " + message, true);
 
         for (Player player : server.getOnlinePlayers())
         {
@@ -161,7 +161,7 @@ public class ChatManager extends FreedomService
                 }
                 else
                 {
-                    player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + sender.getName() + ChatColor.DARK_GRAY + " [" + getColoredTag(admin, display) + ChatColor.DARK_GRAY + "]" + ChatColor.WHITE + ": " + ChatColor.GOLD + FUtil.colorize(message));
+                    player.sendMessage(ChatColor.BLUE + "[" + ChatColor.AQUA + "AdminChat" + ChatColor.BLUE + "] " + ChatColor.DARK_RED + sender.getName() + ChatColor.DARK_GRAY + " [" + getColoredTag(admin, display) + ChatColor.DARK_GRAY + "]" + ChatColor.WHITE + ": " + ChatColor.AQUA + FUtil.colorize(message));
                 }
             }
         }
