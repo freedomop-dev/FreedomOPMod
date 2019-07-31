@@ -9,10 +9,9 @@ public enum Rank implements Displayable
     IMPOSTOR("an", "Impostor", Type.PLAYER, "Imp", ChatColor.YELLOW),
     NON_OP("a", "Non-Op", Type.PLAYER, "", ChatColor.WHITE),
     OP("an", "Op", Type.PLAYER, "OP", ChatColor.GREEN),
-    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, "SA", ChatColor.GOLD),
+    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, "SA", ChatColor.LIGHT_PURPLE),
     TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, "STA", ChatColor.DARK_AQUA),
-    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.LIGHT_PURPLE),
-    OWNER("the", "Owner", Type.ADMIN, "Owner", ChatColor.BLUE),
+    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.GOLD),
     TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
     SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE);
     @Getter
