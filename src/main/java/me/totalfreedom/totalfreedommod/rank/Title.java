@@ -11,7 +11,7 @@ public enum Title implements Displayable
     DEVELOPER("a", "TF Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     FOP_DEVELOPER("a", "FOP Developer", ChatColor.DARK_PURPLE, "FOP-Dev"),
     SYSTEM_ADMIN("a", "System Admin", ChatColor.DARK_RED, "System Admin"),
-    OWNER("the", "Owner", ChatColor.DARK_RED, "Owner");
+    OWNER("the", "Owner", ChatColor.BLUE, "Owner");
 
     private final String determiner;
     @Getter
