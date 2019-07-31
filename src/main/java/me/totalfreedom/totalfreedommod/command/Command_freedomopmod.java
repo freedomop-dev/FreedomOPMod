@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
  */
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
 @CommandParameters(description = "Shows information about FreedomOpMod or reloads it", usage = "/<command> [reload]", aliases = "fopm")
-public class Command_totalfreedommod extends FreedomCommand
+public class Command_freedomopmod extends FreedomCommand
 {
 
     @Override
