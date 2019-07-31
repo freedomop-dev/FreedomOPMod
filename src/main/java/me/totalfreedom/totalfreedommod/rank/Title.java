@@ -7,7 +7,7 @@ public enum Title implements Displayable
 {
 
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
-    EXECUTIVE("an", "Executive", ChatColor.YELLOW, "Exec"),
+    EXECUTIVE("a", "Special Executive", ChatColor.YELLOW, "Spec-Exec"),
     DEVELOPER("a", "TF Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     FOP_DEVELOPER("a", "FOP Developer", ChatColor.DARK_PURPLE, "FOP-Dev"),
     SYSTEM_ADMIN("a", "System Admin", ChatColor.DARK_RED, "System Admin"),
