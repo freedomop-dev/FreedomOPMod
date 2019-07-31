@@ -16,9 +16,9 @@
         <maven.build.timestamp.format>MM/dd/yyyy HH:mm</maven.build.timestamp.format>
     </properties>
 
-    <name>TotalFreedomMod</name>
-    <description>Server modification for the TotalFreedom server</description>
-    <url>https://github.com/TotalFreedom/TotalFreedomMod</url>
+    <name>FreedomOpMod</name>
+    <description>Server modification for the FreedomOp server</description>
+    <url>https://github.com/freedomop-dev/freedomopmod-5.0</url>
 
     <licenses>
         <license>

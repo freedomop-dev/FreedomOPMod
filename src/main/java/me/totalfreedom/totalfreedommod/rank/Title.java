@@ -7,10 +7,10 @@ public enum Title implements Displayable
 {
 
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
-    EXECUTIVE("an", "Executive", ChatColor.RED, "Exec"),
+    EXECUTIVE("an", "Executive", ChatColor.YELLOW, "Exec"),
     DEVELOPER("a", "TF Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     FOP_DEVELOPER("a", "FOP Developer", ChatColor.DARK_PURPLE, "FOP-Dev"),
-    SYSTEM_ADMIN("a", "System Admin", ChatColor.RED, "System Admin"),
+    SYSTEM_ADMIN("a", "System Admin", ChatColor.DARK_RED, "System Admin"),
     OWNER("the", "Owner", ChatColor.DARK_RED, "Owner");
 
     private final String determiner;
