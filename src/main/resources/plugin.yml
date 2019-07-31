@@ -1,6 +1,7 @@
 name: FreedomOpMod
 main: me.totalfreedom.totalfreedommod.TotalFreedomMod
 version: ${project.version}
+api-version: 1.13
 description: Plugin for the FreedomOp server.
 depend: [Aero]
 softdepend: [BukkitTelnet, Essentials, LibsDisguises, WorldEdit]
