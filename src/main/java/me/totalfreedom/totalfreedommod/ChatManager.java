@@ -109,36 +109,36 @@ public class ChatManager extends FreedomService
     public ChatColor getColor(Admin admin, Displayable display)
     {
         ChatColor color = display.getColor();
-        if (admin.getOldTags())
-        {
-
-            if (color.equals(ChatColor.AQUA))
-            {
-                color = ChatColor.GOLD;
-            }
-            else if (color.equals(ChatColor.GOLD))
-            {
-                color = ChatColor.LIGHT_PURPLE;
-            }
-        }
+//        if (admin.getOldTags())
+//        {
+//
+//            if (color.equals(ChatColor.AQUA))
+//            {
+//                color = ChatColor.GOLD;
+//            }
+//            else if (color.equals(ChatColor.GOLD))
+//            {
+//                color = ChatColor.LIGHT_PURPLE;
+//            }
+//        }
         return color;
     }
 
     public String getColoredTag(Admin admin, Displayable display)
     {
         ChatColor color = display.getColor();
-        if (admin.getOldTags())
-        {
-
-            if (color.equals(ChatColor.AQUA))
-            {
-                color = ChatColor.GOLD;
-            }
-            else if (color.equals(ChatColor.GOLD))
-            {
-                color = ChatColor.LIGHT_PURPLE;
-            }
-        }
+//        if (admin.getOldTags())
+//        {
+//
+//            if (color.equals(ChatColor.AQUA))
+//            {
+//                color = ChatColor.GOLD;
+//            }
+//            else if (color.equals(ChatColor.GOLD))
+//            {
+//                color = ChatColor.LIGHT_PURPLE;
+//            }
+//        }
         return color + display.getAbbr();
     }
 
