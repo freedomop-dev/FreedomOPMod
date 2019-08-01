@@ -348,9 +348,9 @@ public class Command_sys extends FreedomCommand {
     @Override
     public List<String> getTabCompleteOptions(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return Arrays.asList("add", "remove", "setrank");
+            return Arrays.asList("add", "remove", "setrank", "doom");
         } else if (args.length == 2) {
-            if (args[0].equals("add") || args[0].equals("remove") || args[0].equals("setrank")) {
+            if (args[0].equals("add") || args[0].equals("remove") || args[0].equals("setrank") || args[0].equals("doom")) {
                 return FUtil.getPlayerList();
             }
         } else if (args.length == 3 && args[0].equals("setrank")) {
