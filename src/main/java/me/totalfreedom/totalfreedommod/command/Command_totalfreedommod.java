@@ -13,8 +13,8 @@ import org.bukkit.entity.Player;
  * See https://github.com/TotalFreedom/License - This file may not be edited or removed.
  */
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
-@CommandParameters(description = "Shows information about FreedomOpMod or reloads it", usage = "/<command> [reload]", aliases = "fopm")
-public class Command_freedomopmod extends FreedomCommand
+@CommandParameters(description = "Shows information about TotalFreedomMod or reloads it", usage = "/<command> [reload]", aliases = "tfm")
+public class Command_totalfreedommod extends FreedomCommand
 {
 
     @Override
@@ -47,9 +47,9 @@ public class Command_freedomopmod extends FreedomCommand
         }
 
         TotalFreedomMod.BuildProperties build = TotalFreedomMod.build;
-        msg("FreedomOpMod for 'FreedomOp'", ChatColor.GOLD);
+        msg("TotalFreedomMod for 'Total Freedom', the original all-op server.", ChatColor.GOLD);
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
-        msg("Created by Madgeek1450 and Prozza. Forked by Fleek, Taah", ChatColor.GOLD);
+        msg("Created by Madgeek1450 and Prozza.", ChatColor.GOLD);
         msg(String.format("Version "
                         + ChatColor.BLUE + "%s - %s Build %s " + ChatColor.GOLD + "("
                         + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
@@ -62,7 +62,7 @@ public class Command_freedomopmod extends FreedomCommand
                         + ChatColor.BLUE + "%s",
                 build.date,
                 build.author), ChatColor.GOLD);
-        msg("Visit " + ChatColor.AQUA + "https://github.com/freedomop-dev/freedomopmod-5.0"
+        msg("Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod"
                 + ChatColor.GREEN + " for more information.", ChatColor.GREEN);
 
         return true;
