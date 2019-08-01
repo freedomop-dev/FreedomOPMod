@@ -29,10 +29,11 @@ public enum Title implements Displayable
     {
         this.determiner = determiner;
         this.name = name;
-        this.coloredTag = ChatColor.DARK_GRAY + "[" + color + tag + ChatColor.DARK_GRAY + "]" + color;
+        this.coloredTag = color + "[" + tag + "]" + color;
         this.abbr = tag;
         this.tag = "[" + tag + "]";
         this.color = color;
+        
     }
 
     @Override
