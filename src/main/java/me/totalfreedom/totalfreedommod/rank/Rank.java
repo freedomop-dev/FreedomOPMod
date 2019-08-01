@@ -35,7 +35,7 @@ public enum Rank implements Displayable
         this.abbr = abbr;
         this.determiner = determiner;
         this.tag = abbr.isEmpty() ? "" : "[" + abbr + "]";
-        this.coloredTag = abbr.isEmpty() ? "" : ChatColor.DARK_GRAY + "[" + color + abbr + ChatColor.DARK_GRAY + "]" + color;
+        this.coloredTag = abbr.isEmpty() ? "" : color + "[" + abbr + "]" + color;
         this.color = color;
     }
 
@@ -61,7 +61,7 @@ public enum Rank implements Displayable
     @Override
     public String getColoredLoginMessage()
     {
-        return determiner + " " + color + ChatColor.ITALIC + name;
+        return determiner + " " + color + name + ChatColor.AQUA + "!";
     }
 
     @Override
