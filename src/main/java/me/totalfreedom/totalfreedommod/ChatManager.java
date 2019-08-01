@@ -126,6 +126,7 @@ public class ChatManager extends FreedomService
 
     public String getColoredTag(Admin admin, Displayable display)
     {
+        String tag = display.getAbbr();
         ChatColor color = display.getColor();
 //        if (admin.getOldTags())
 //        {
@@ -139,11 +140,13 @@ public class ChatManager extends FreedomService
 //                color = ChatColor.LIGHT_PURPLE;
 //            }
 //        }
-        return color + display.getAbbr();
+        return color + " [" + tag + "]";
     }
 
     public void adminChat(CommandSender sender, String message)
     {
+
+
         Displayable display = plugin.rm.getDisplay(sender);
         FLog.info("[AdminChat] " + sender.getName() + " " + display.getTag() + ": " + message, true);
 
@@ -161,7 +164,7 @@ public class ChatManager extends FreedomService
                 }
                 else
                 {
-                    player.sendMessage(ChatColor.BLUE + "[" + ChatColor.AQUA + "AdminChat" + ChatColor.BLUE + "] " + ChatColor.DARK_RED + sender.getName() + ChatColor.DARK_GRAY + " [" + getColoredTag(admin, display) + ChatColor.DARK_GRAY + "]" + ChatColor.WHITE + ": " + ChatColor.AQUA + FUtil.colorize(message));
+                    player.sendMessage(ChatColor.WHITE + "[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + sender.getName() + getColoredTag(admin, display) + ChatColor.WHITE + ": " + ChatColor.AQUA + FUtil.colorize(message));
                 }
             }
         }
