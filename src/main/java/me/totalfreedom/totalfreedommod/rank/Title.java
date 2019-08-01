@@ -10,7 +10,7 @@ public enum Title implements Displayable
     EXECUTIVE("a", "Special Executive", ChatColor.YELLOW, "Spec-Exec"),
     DEVELOPER("a", "TF Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     FOP_DEVELOPER("a", "FOP Developer", ChatColor.DARK_PURPLE, "FOP-Dev"),
-    SYSTEM_ADMIN("a", "System Admin", ChatColor.RED, "Sys-Admin"),
+    SYSTEM_ADMIN("a", "System Admin", ChatColor.RED, "System Admin"),
     OWNER("the", "Owner", ChatColor.BLUE, "Owner");
 
     private final String determiner;
@@ -29,7 +29,7 @@ public enum Title implements Displayable
     {
         this.determiner = determiner;
         this.name = name;
-        this.coloredTag = color + "[" + tag + "]" + color;
+        this.coloredTag = ChatColor.DARK_GRAY + "[" + color + tag + ChatColor.DARK_GRAY + "]" + color;
         this.abbr = tag;
         this.tag = "[" + tag + "]";
         this.color = color;
@@ -45,7 +45,7 @@ public enum Title implements Displayable
     @Override
     public String getColoredLoginMessage()
     {
-        return determiner + " " + color + ChatColor.ITALIC + name;
+        return determiner + " " + color + name + ChatColor.AQUA + "!";
     }
 
 }
