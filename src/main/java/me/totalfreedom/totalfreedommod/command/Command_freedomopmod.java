@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
-@CommandParameters(description = "Shows information about FreedomOpMod or reloads it", usage = "/<command> [reload]", aliases = "fopm")
+@CommandParameters(description = "Shows information about FreedomOPMod or reloads it", usage = "/<command> [reload]", aliases = "fopm")
 public class Command_freedomopmod extends FreedomCommand
 {
 
@@ -44,7 +44,8 @@ public class Command_freedomopmod extends FreedomCommand
         }
 
         TotalFreedomMod.BuildProperties build = TotalFreedomMod.build;
-        msg("FreedomOpMod for 'FreedomOp', the best all-op server.", ChatColor.GOLD);
+        msg("FreedomOPMod for 'FreedomOP', the best all-op server.", ChatColor.GOLD);
+        msg("For information on the original mod, do /tfm.", ChatColor.GOLD);
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
         msg("Revamped by Fleek, Taah, Jake, and Wade.", ChatColor.GOLD);
         msg(String.format("Version "
