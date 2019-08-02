@@ -137,7 +137,7 @@ public class EventBlocker extends FreedomService
             Entity entity = event.getEntity();
             if (entity instanceof Tameable)
             {
-                if (((Tameable)entity).isTamed())
+                if (((Tameable) entity).isTamed())
                 {
                     event.setCancelled(true);
                 }
@@ -220,8 +220,8 @@ public class EventBlocker extends FreedomService
         ItemStack item = event.getItem();
         if (Groups.SHULKER_BOXES.contains(item.getType()))
         {
-            BlockStateMeta blockStateMeta = (BlockStateMeta)item.getItemMeta();
-            ShulkerBox shulkerBox = (ShulkerBox)blockStateMeta.getBlockState();
+            BlockStateMeta blockStateMeta = (BlockStateMeta) item.getItemMeta();
+            ShulkerBox shulkerBox = (ShulkerBox) blockStateMeta.getBlockState();
             for (ItemStack itemStack : shulkerBox.getInventory().getContents())
             {
                 if (itemStack != null)

@@ -68,7 +68,7 @@ public class Module_help extends HTTPDModule
                         "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
                                 + "Please note that it does not include vanilla server commands."));
 
-        final Collection<Command> knownCommands = ((SimpleCommandMap)map).getCommands();
+        final Collection<Command> knownCommands = ((SimpleCommandMap) map).getCommands();
         final Map<String, List<Command>> commandsByPlugin = new HashMap<>();
 
         for (Command command : knownCommands)
@@ -76,7 +76,7 @@ public class Module_help extends HTTPDModule
             String pluginName = "Bukkit";
             if (command instanceof PluginIdentifiableCommand)
             {
-                pluginName = ((PluginIdentifiableCommand)command).getPlugin().getName();
+                pluginName = ((PluginIdentifiableCommand) command).getPlugin().getName();
             }
 
             List<Command> pluginCommands = commandsByPlugin.computeIfAbsent(pluginName, k -> Lists.newArrayList());

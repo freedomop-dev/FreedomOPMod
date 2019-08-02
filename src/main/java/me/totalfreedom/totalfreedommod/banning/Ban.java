@@ -105,7 +105,7 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
     public static Ban forPlayerName(String player, CommandSender by, Date expiry, String reason)
     {
         return new Ban(player,
-                (String[])null,
+                (String[]) null,
                 by.getName(),
                 Date.from(Instant.now()),
                 expiry,
@@ -217,7 +217,7 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
             return false;
         }
 
-        final Ban ban = (Ban)object;
+        final Ban ban = (Ban) object;
         if (hasIps() != ban.hasIps()
                 || hasUsername() != ban.hasUsername())
         {

@@ -57,7 +57,7 @@ public class Command_op extends FreedomCommand
 
         if (player.isOnline())
         {
-            Player p = (Player)player;
+            Player p = (Player) player;
             p.sendMessage(YOU_ARE_OP);
         }
 

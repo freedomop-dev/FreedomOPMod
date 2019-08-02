@@ -204,7 +204,7 @@ public enum ConfigEntry
     @SuppressWarnings("unchecked")
     public List<String> getStringList()
     {
-        return (List<String>)getList();
+        return (List<String>) getList();
     }
 
     private MainConfig getConfig()

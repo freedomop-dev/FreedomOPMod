@@ -75,7 +75,7 @@ public class LogViewer extends FreedomService
                             .addQueryParameter("key", key)
                             .getURL();
 
-                    final HttpURLConnection connection = (HttpURLConnection)urlAdd.openConnection();
+                    final HttpURLConnection connection = (HttpURLConnection) urlAdd.openConnection();
                     connection.setConnectTimeout(1000 * 5);
                     connection.setReadTimeout(1000 * 5);
                     connection.setUseCaches(false);

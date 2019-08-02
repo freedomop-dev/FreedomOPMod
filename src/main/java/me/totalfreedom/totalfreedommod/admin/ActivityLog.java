@@ -99,7 +99,7 @@ public class ActivityLog extends FreedomService
     {
         if (sender instanceof Player)
         {
-            return getActivityLog((Player)sender);
+            return getActivityLog((Player) sender);
         }
 
         return getEntryByName(sender.getName());

@@ -39,7 +39,7 @@ public class WorldGuardBridge extends FreedomService
                 final Plugin worldGuard = server.getPluginManager().getPlugin("WorldGuard");
                 if (worldGuard != null && worldGuard instanceof WorldGuardPlugin)
                 {
-                    worldGuardPlugin = (WorldGuardPlugin)worldGuard;
+                    worldGuardPlugin = (WorldGuardPlugin) worldGuard;
                 }
             }
             catch (Exception ex)

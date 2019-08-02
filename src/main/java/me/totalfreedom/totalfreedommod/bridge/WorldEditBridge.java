@@ -45,7 +45,7 @@ public class WorldEditBridge extends FreedomService
                 {
                     if (we instanceof WorldEditPlugin)
                     {
-                        worldeditPlugin = (WorldEditPlugin)we;
+                        worldeditPlugin = (WorldEditPlugin) we;
                     }
                 }
             }
@@ -70,7 +70,7 @@ public class WorldEditBridge extends FreedomService
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        com.sk89q.worldedit.entity.Player fuckyou = (com.sk89q.worldedit.entity.Player)bukkitPlayer;
+                        com.sk89q.worldedit.entity.Player fuckyou = (com.sk89q.worldedit.entity.Player) bukkitPlayer;
                         session.undo(session.getBlockBag(fuckyou), fuckyou);
                     }
                 }
@@ -94,7 +94,7 @@ public class WorldEditBridge extends FreedomService
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        com.sk89q.worldedit.entity.Player fuckyou = (com.sk89q.worldedit.entity.Player)bukkitPlayer;
+                        com.sk89q.worldedit.entity.Player fuckyou = (com.sk89q.worldedit.entity.Player) bukkitPlayer;
                         session.redo(session.getBlockBag(fuckyou), fuckyou);
                     }
                 }

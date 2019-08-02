@@ -382,7 +382,7 @@ public class FUtil
             {
                 Field field = checkClass.getDeclaredField(name);
                 field.setAccessible(true);
-                return (T)field.get(from);
+                return (T) field.get(from);
 
             }
             catch (NoSuchFieldException | IllegalAccessException ex)
@@ -453,7 +453,7 @@ public class FUtil
     public static int random(int min, int max)
     {
         int range = max - min + 1;
-        int value = (int)(Math.random() * range) + min;
+        int value = (int) (Math.random() * range) + min;
         return value;
     }
 }

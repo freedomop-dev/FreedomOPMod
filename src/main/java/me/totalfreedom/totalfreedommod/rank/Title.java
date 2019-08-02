@@ -33,7 +33,7 @@ public enum Title implements Displayable
         this.abbr = tag;
         this.tag = "[" + tag + "]";
         this.color = color;
-        
+
     }
 
     @Override

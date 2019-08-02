@@ -42,9 +42,9 @@ public class Monitors extends FreedomService
         {
             return;
         }
-        Player player = (Player)source;
+        Player player = (Player) source;
 
-        if (plugin.al.isAdmin((Player)event.getEntity().getShooter()))
+        if (plugin.al.isAdmin((Player) event.getEntity().getShooter()))
         {
             return;
         }
@@ -69,9 +69,9 @@ public class Monitors extends FreedomService
         {
             return;
         }
-        Player player = (Player)source;
+        Player player = (Player) source;
 
-        if (plugin.al.isAdmin((Player)event.getEntity().getShooter()))
+        if (plugin.al.isAdmin((Player) event.getEntity().getShooter()))
         {
             return;
         }

@@ -24,7 +24,7 @@ public class Command_dispfill extends FreedomCommand
     {
         if (targetBlock.getType() == Material.DISPENSER)
         {
-            final Inventory dispenserInv = ((Dispenser)targetBlock.getState()).getInventory();
+            final Inventory dispenserInv = ((Dispenser) targetBlock.getState()).getInventory();
             dispenserInv.clear();
             dispenserInv.addItem(items);
         }

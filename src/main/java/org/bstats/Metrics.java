@@ -155,7 +155,7 @@ public class Metrics
         {
             throw new IllegalAccessException("This method must not be called from the main thread!");
         }
-        HttpsURLConnection connection = (HttpsURLConnection)new URL(URL).openConnection();
+        HttpsURLConnection connection = (HttpsURLConnection) new URL(URL).openConnection();
 
         // Compress the data to save bandwidth
         byte[] compressedData = compress(data.toString());
@@ -291,8 +291,8 @@ public class Metrics
             // This fixes java.lang.NoSuchMethodError: org.bukkit.Bukkit.getOnlinePlayers()Ljava/util/Collection;
             Method onlinePlayersMethod = Class.forName("org.bukkit.Server").getMethod("getOnlinePlayers");
             playerAmount = onlinePlayersMethod.getReturnType().equals(Collection.class)
-                    ? ((Collection<?>)onlinePlayersMethod.invoke(Bukkit.getServer())).size()
-                    : ((Player[])onlinePlayersMethod.invoke(Bukkit.getServer())).length;
+                    ? ((Collection<?>) onlinePlayersMethod.invoke(Bukkit.getServer())).size()
+                    : ((Player[]) onlinePlayersMethod.invoke(Bukkit.getServer())).length;
         }
         catch (Exception e)
         {

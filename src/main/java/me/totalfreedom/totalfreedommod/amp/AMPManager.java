@@ -124,7 +124,7 @@ public class AMPManager
         URL url = new URL(endpoint);
         if (endpoint.startsWith("https://"))
         {
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
@@ -146,7 +146,7 @@ public class AMPManager
         }
         else
         {
-            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);

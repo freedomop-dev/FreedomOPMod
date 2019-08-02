@@ -49,7 +49,7 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
     {
         try
         {
-            return (FreedomCommand)((FreedomCommandExecutor)(((PluginCommand)command).getExecutor())).getCommandBase();
+            return (FreedomCommand) ((FreedomCommandExecutor) (((PluginCommand) command).getExecutor())).getCommandBase();
         }
         catch (Exception ex)
         {

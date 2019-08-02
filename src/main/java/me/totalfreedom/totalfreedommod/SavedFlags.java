@@ -40,7 +40,7 @@ public class SavedFlags extends FreedomService
             {
                 try (FileInputStream fis = new FileInputStream(input); ObjectInputStream ois = new ObjectInputStream(fis))
                 {
-                    flags = (HashMap<String, Boolean>)ois.readObject();
+                    flags = (HashMap<String, Boolean>) ois.readObject();
                 }
             }
             catch (Exception ex)

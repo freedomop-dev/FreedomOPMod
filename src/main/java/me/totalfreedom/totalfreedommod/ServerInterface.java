@@ -83,7 +83,7 @@ public class ServerInterface extends FreedomService
 
     private MinecraftServer getServer()
     {
-        return ((CraftServer)Bukkit.getServer()).getServer();
+        return ((CraftServer) Bukkit.getServer()).getServer();
     }
 
 }

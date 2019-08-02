@@ -208,7 +208,7 @@ public class Command_enchant extends FreedomCommand
         Player player;
         if (sender instanceof Player)
         {
-            player = (Player)sender;
+            player = (Player) sender;
         }
         else
         {

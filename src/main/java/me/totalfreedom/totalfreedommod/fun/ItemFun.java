@@ -147,7 +147,7 @@ public class ItemFun extends FreedomService
                 Vector playerDirection = location.getDirection().normalize();
 
                 double distance = 150.0;
-                Block targetBlock = DepreciationAggregator.getTargetBlock(player, null, Math.round((float)distance));
+                Block targetBlock = DepreciationAggregator.getTargetBlock(player, null, Math.round((float) distance));
                 if (targetBlock != null)
                 {
                     distance = location.distance(targetBlock.getLocation());
@@ -204,7 +204,7 @@ public class ItemFun extends FreedomService
                 Location player_pos = player.getLocation();
                 Vector direction = player_pos.getDirection().normalize();
 
-                LivingEntity rezzed_mob = (LivingEntity)player.getWorld().spawnEntity(player_pos.add(direction.multiply(2.0)), fPlayer.mobThrowerCreature());
+                LivingEntity rezzed_mob = (LivingEntity) player.getWorld().spawnEntity(player_pos.add(direction.multiply(2.0)), fPlayer.mobThrowerCreature());
                 rezzed_mob.setVelocity(direction.multiply(fPlayer.mobThrowerSpeed()));
                 fPlayer.enqueueMob(rezzed_mob);
 
@@ -282,11 +282,11 @@ public class ItemFun extends FreedomService
         Arrow arrow = null;
         if (entity instanceof Arrow)
         {
-            arrow = (Arrow)entity;
+            arrow = (Arrow) entity;
         }
         if (arrow != null && (arrow.getShooter() instanceof Player))
         {
-            if (explosivePlayers.contains((Player)arrow.getShooter()))
+            if (explosivePlayers.contains((Player) arrow.getShooter()))
             {
                 arrow.getLocation().getWorld().createExplosion(arrow.getLocation().getX(), arrow.getLocation().getY(), arrow.getLocation().getZ(), ConfigEntry.EXPLOSIVE_RADIUS.getDouble().floatValue(), false, ConfigEntry.ALLOW_EXPLOSIONS.getBoolean());
                 arrow.remove();

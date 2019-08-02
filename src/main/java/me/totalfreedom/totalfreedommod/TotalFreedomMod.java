@@ -143,7 +143,7 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         {
             if (plugin.getName().equalsIgnoreCase(pluginName))
             {
-                return (TotalFreedomMod)plugin;
+                return (TotalFreedomMod) plugin;
             }
         }
         return null;

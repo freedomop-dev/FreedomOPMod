@@ -96,7 +96,7 @@ public class MasterBuilderWorldRestrictions extends FreedomService
     {
         if (event.getDamager() instanceof Player)
         {
-            Player player = (Player)event.getDamager();
+            Player player = (Player) event.getDamager();
 
             if (doRestrict(player))
             {

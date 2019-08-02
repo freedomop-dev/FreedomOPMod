@@ -50,7 +50,7 @@ public class CoreProtectBridge extends FreedomService
 
             if (coreProtectPlugin != null && coreProtectPlugin instanceof CoreProtect)
             {
-                coreProtect = (CoreProtect)coreProtectPlugin;
+                coreProtect = (CoreProtect) coreProtectPlugin;
             }
         }
         catch (Exception ex)

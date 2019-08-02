@@ -72,13 +72,22 @@ public class ChatManager extends FreedomService
                     caps++;
                 }
             }
-            if (((float)caps / (float)message.length()) > 0.65) //Compute a ratio so that longer sentences can have more caps.
+            if (((float) caps / (float) message.length()) > 0.65) //Compute a ratio so that longer sentences can have more caps.
             {
                 if (!plugin.al.isAdmin(player))
                 {
                     message = message.toLowerCase();
                 }
             }
+        }
+
+        // Check for senior chat - TODO: Find a better place to put this
+        if (message.startsWith("/p ") && plugin.al.isSeniorAdmin(player))
+        {
+            message = message.replaceFirst("/p ", "");
+            event.setCancelled(true);
+            seniorChat(player, message);
+            return;
         }
 
         // Check for adminchat
@@ -145,8 +154,6 @@ public class ChatManager extends FreedomService
 
     public void adminChat(CommandSender sender, String message)
     {
-
-
         Displayable display = plugin.rm.getDisplay(sender);
         FLog.info("[AdminChat] " + sender.getName() + " " + display.getTag() + ": " + message, true);
 
@@ -166,6 +173,17 @@ public class ChatManager extends FreedomService
                 {
                     player.sendMessage(ChatColor.WHITE + "[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + sender.getName() + getColoredTag(admin, display) + ChatColor.WHITE + ": " + ChatColor.AQUA + FUtil.colorize(message));
                 }
+            }
+        }
+    }
+
+    public void seniorChat(CommandSender sender, String message)
+    {
+        for (Player player : server.getOnlinePlayers())
+        {
+            if (plugin.al.isSeniorAdmin(player))
+            {
+                player.sendMessage("[SENIOR] " + sender.getName() + " " + plugin.rm.getDisplay(sender).getColoredTag() + ": " + message);
             }
         }
     }

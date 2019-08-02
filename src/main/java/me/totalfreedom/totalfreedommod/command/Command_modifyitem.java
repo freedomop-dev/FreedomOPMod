@@ -139,7 +139,7 @@ public class Command_modifyitem extends FreedomCommand
                     msg("The amplifier specified is not a valid integer.");
                     return true;
                 }
-                PotionMeta potionMeta = (PotionMeta)meta;
+                PotionMeta potionMeta = (PotionMeta) meta;
                 potionMeta.addCustomEffect(type.createEffect(duration, amplifier), true);
                 item.setItemMeta(potionMeta);
                 break;
